@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Shrikhand&display=swap');
+/*It is to my understanding that Project 4 only called for 2-3 of the listed features on codio. I chose to include an SCSS sheet, An advanced grip/flexbox, and animations/transitions.*/
+/* Declaring my variables and mixins for my SCSS stylesheet.*/
+/* Multiple pseudo-class/pseudo-elements were used thoughout the stylesheet. */
+*::selection {
+  color: hotpink;
+}
+h1 {
+  background-image: url(https://wallpaperaccess.com/full/383784.jpg);
+  color: hotpink;
+  font-family: 'Shrikhand', cursive;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  font-size: 95px;
+}
+.h1-not {
+  background: transparent;
+  color: hotpink;
+  font-family: 'Shrikhand', cursive;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  font-size: 35px;
+}
+h2 {
+  color: hotpink;
+  font-family: 'Shrikhand', cursive;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  border-style: solid;
+  background: url(https://wallpaper.dog/large/990383.jpg);
+  font-size: 35px;
+}
+p {
+  font-family: 'Outfit', sans-serif;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  text-indent: 5%;
+}
+.p-not {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  text-indent: 0%;
+}
+a {
+  color: hotpink;
+}
+a:hover {
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* Made use of a more advanced grid/flexbox in comparison to my last project submission. */
+/* Also applied animations to grid areas and transitions throughout the stylesheet. */
+.main-grid {
+  display: grid;
+  place-items: center;
+  grid-auto-flow: column;
+  grid-gap: 25px;
+  grid-template: "aside-one main main main aside-two";
+}
+.main {
+  grid-area: main;
+}
+.aside-one, .aside-two {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: hotpink;
+  border-width: 4px;
+  background-color: hotpink;
+  max-width: 500px;
+}
+.aside-one {
+  grid-area: aside-one;
+  animation: fade-in-right 1.5s forwards;
+}
+.aside-two {
+  grid-area: aside-two;
+  animation: fade-in-left 1.5s forwards;
+}
+.intro {
+  padding: 0px 100px 0px;
+}
+.solid {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: hotpink;
+  border-width: 4px;
+  background: url(https://wallpaper.dog/large/990383.jpg);
+  padding: 50px;
+  animation: fade-in 1.5s;
+}
+.table {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: hotpink;
+  border-width: 4px;
+  margin-top: -4px;
+  animation: fade-in 1.5s;
+}
+.table p {
+  font-size: 30px;
+  text-align: center;
+  padding: 0px 100px 0px;
+}
+
+.center {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.newsletter {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+.newsletter-input {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: hotpink;
+  width: 10%;
+  height: 25px;
+}
+.newsletter-input::placeholder {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: hotpink;
+}
+.button {
+  color: hotpink;
+  font-family: 'Shrikhand', cursive;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: hotpink;
+  border-width: 4px;
+  margin: 0px auto 0px;
+  background: transparent;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.button:hover {
+  color: white;
+  font-family: 'Shrikhand', cursive;
+  text-shadow: -1px 0 hotpink, 0 1px hotpink, 1px 0 hotpink, 0 -1px hotpink;
+  background: transparent;
+  border: 5px solid white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.nav-menu {
+  color: hotpink;
+  font-size: 20px;
+  font-family: 'Outfit', sans-serif;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.nav-pages {
+  background-color:#434343;
+  text-align: center;
+  color: hotpink;
+}
+
+.nav-pages p {
+  background-image: url(https://wallpaperaccess.com/full/383784.jpg);
+  text-indent: 0%;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: hotpink;
+  border-width: 4px;
+  max-width: 1200px;
+  margin: auto auto 25px;
+  padding: 50px;
+}
+
+.nav-pages img {
+  border-style: solid;
+  border-color: hotpink;
+  border-width: 4px;
+  max-width: 1300px;
+  animation: fade-in 1.5s;
+}
+
+/* Keyframes for animations and transitions. */
+@keyframes fade-in-right {
+  0% {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-left {
+  0% {
+    transform: translateX(10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
