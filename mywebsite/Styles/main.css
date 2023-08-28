@@ -43,8 +43,8 @@ p {
 }
 
 .not-bold {
-  font-weight: normal;
-  color: white;
+  font-weight: bold;
+  color: hotpink;
   font-size: 30px;
 }
 
