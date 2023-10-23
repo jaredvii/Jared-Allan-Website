@@ -85,7 +85,7 @@ $(document).ready(function () {
     displayQuestion(currentQuestionIndex);
 
     $(".options").hover(function () {
-        $(this).css("background-color", "#ff9a9a");
+        $(this).css("background-color", "#a14171");
     }, function () {
         $(this).css("background-color", "hotpink");
     });
