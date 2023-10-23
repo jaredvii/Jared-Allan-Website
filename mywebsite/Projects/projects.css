@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+body {
+    font-family: "Outfit", Arial, sans-serif;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: hotpink;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+h2 {
+    font-family: "Outfit", Arial, sans-serif;
+    font-size: 24px;
+    margin: 10px 0;
+    color: hotpink;
+    font-weight: bold;
+}
+
+p {
+    font-family: "Outfit", Arial, sans-serif;
+    font-size: 20px;
+    color: hotpink;
+    font-weight: bold;
+}
+
+header {
+    background-color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17%, 1fr)); /* Ensure a maximum of 5 projects per row */
+    justify-content: center;
+    gap: 45px; /* Adjust this gap as needed */
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 100px;
+}
+
+.project {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    border-style: none;
+    border-radius: 5px;
+}
+
+.thumbnail-container {
+    position: relative;
+    width: 320px;
+    height: 180px;
+    overflow: hidden;
+    display: flex;
+}
+
+.thumbnail-content {
+    flex: 1; /* Allow the image to expand and maintain aspect ratio */
+    position: relative;
+}
+
+.project img {
+    object-fit: cover;
+    width: 100%;
+    max-height: 50%;
+    height: auto;
+}
+
+.hover-image {
+    transition: opacity 0.3s;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.project-button {
+    font-family: "Outfit", Arial, sans-serif;
+    font-size: 24px;
+    margin: 10px 0;
+    color: rgb(255, 255, 255);
+    text-shadow: none;
+    border-style: none;
+    border-radius: 5px;
+    background-color: rgb(255, 105, 180);
+}
+
+.project-button:hover {
+    background-color: rgb(161, 65, 113);
+    transition: background-color 0.3s;
+}
+
+@media (max-width: 1200px) {
+    .portfolio {
+        grid-template-columns: repeat(auto-fill, minmax(30%, 1fr)); /* Adjust the column width for smaller screens */
+    }
+}

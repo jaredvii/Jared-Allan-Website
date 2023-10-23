@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Style for the container that holds the thumbnail */
+        .thumbnail-container {
+            position: relative;
+            width: 320px; /* Set the width of your thumbnail container */
+            height: 180px; /* Set the height of your thumbnail container */
+            overflow: hidden;
+        }
+
+        /* Style for the video preview */
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none; /* Initially hide the video preview */
+        }
+
+        /* Style for the thumbnail image */
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="thumbnail-container" onmouseenter="playVideo()" onmouseleave="resetVideo()">
+        <video id="videoPreview" autoplay loop muted>
+            <source src="Media/Trivia Game Hover Video.mp4" type="video/mp4">
+        </video>
+       <img src="Media/Trivia Game Thumbnail.PNG" alt="Thumbnail Image">
+    </div>
+
+    <script>
+        const videoPreview = document.getElementById("videoPreview");
+
+        function playVideo() {
+            videoPreview.style.display = "block";
+            videoPreview.currentTime = 0; // Reset the video playback position
+            videoPreview.play();
+        }
+
+        function resetVideo() {
+            videoPreview.style.display = "none";
+            videoPreview.pause();
+        }
+    </script>
+</body>
+</html>
