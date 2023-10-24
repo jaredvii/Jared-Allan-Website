@@ -8,6 +8,10 @@
 </head>
 <body>
     <div id="container">
+        <div class="message-box hidden-message">
+            <p class="message-text">Hello, I'm a message!</p>
+        </div>
+        <img src="../../Media/Enlarged Icon.png" alt="Game Icon" id="game-icon">
         <h1 class="title">Dog Trivia Game</h1>
         <div id="question-container">
             <p id="question"></p>
@@ -18,12 +22,16 @@
             <button class="options"></button>
             <button class="options"></button>
         </div>
-        <div id="button-container">
-            <button id="next-button">Next</button>
-        </div>
-        <p id="feedback"></p>
+        <!-- ... (your other HTML code) -->
+<div id="button-container">
+    <button id="next-button">Next</button>
+    <button id="restart-button" class="endscreen-button" style="display: none;">Restart</button>
+    <button id="home-button" class="endscreen-button" style="display: none;">Home</button>
+    <button id="portfolio-button" class="endscreen-button" style="display: none;">Portfolio</button>
+</div>
+<!-- ... (remaining HTML code) -->
+
     </div>
-    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../JS/triviagame.js"></script>
 </body>

@@ -1,11 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 
+*::selection {
+    color: white;
+    background-color: hotpink;
+}
+
 body {
     font-family: 'Outfit', Arial, sans-serif;
     font-weight: 700;
     text-align: center;
-    background-color: #333; /* Change this color to dark grey */
+    background-color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,14 +32,42 @@ h1 {
     text-align: center;
 }
 
+#game-icon {
+    max-width: 100px;
+    display: block;
+    margin: 0px auto 3px;
+}
+
 #container {
     background-color: #fff;
     max-width: 600px;
-    padding: 20px;
+    width: 100%;
+    padding: 20px 20px 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     text-align: left;
     position: relative;
+    overflow: hidden;
+}
+
+.message-box {
+    font-family: 'Outfit', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    background-color: hotpink;
+    color: #fff;
+    padding: 10px;
+    transition: bottom 0.5s;
+}
+
+.show-message {
+    bottom: 0;
 }
 
 h1 {
@@ -43,8 +76,11 @@ h1 {
 }
 
 #question-container {
+    text-align: center;
+    font-size: 1.5rem;
     background-color: #eee;
     padding: 10px;
+    margin: 5px 0 0 0;
     border-radius: 5px;
 }
 
@@ -64,7 +100,8 @@ h1 {
     font-size: 1.2rem;
     display: block;
     margin: 10px auto;
-    width: 80%;
+    width: 100%;
+    max-width: 400px;
     max-height: 50px;
     padding: 10px 20px;
     background-color: rgb(255, 105, 180);
@@ -98,6 +135,7 @@ h1 {
     height: 50px;
     cursor: pointer;
     margin-top: 20px;
+    margin-bottom: 55px;
     transition: background-color 0.3s;
 }
 
@@ -105,35 +143,37 @@ h1 {
     background-color: rgb(161, 65, 113);
 }
 
-#feedback {
-    font-family: 'Outfit', Arial, sans-serif;
-    font-weight: 700;
-    display: block;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin: 10px auto;
-    font-size: 1.2rem;
-    width: 80%;
-    height: 50px;
-    line-height: 1.2;
+#score-message {
     text-align: center;
-}
-
-.correct-feedback {
-    background-color: #27ae60;
-    color: #fff;
-}
-
-.incorrect-feedback {
-    background-color: #e74c3c;
-    color: #fff;
+    font-family: 'Shrikhand', cursive;
+    font-size: 1.5rem;
+    margin-top: 40px;
+    display: none; /* Hidden until the end */
 }
 
 #congratulations-message {
+    text-align: center;
     font-family: 'Shrikhand', cursive;
-    font-size: 1.2rem;
-    margin-top: 20px;
+    font-size: 1.5rem;
+    margin-top: 40px;
+    display: none; /* Hidden until the end */
 }
 
+.endscreen-button {
+    font-family: 'Outfit', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: rgb(255, 105, 180);
+    width: 100px;
+    border: none;
+    border-radius: 30px;
+    height: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin:5px;
+}
 
-
+.endscreen-button:hover {
+    background-color: rgb(161, 65, 113);
+}

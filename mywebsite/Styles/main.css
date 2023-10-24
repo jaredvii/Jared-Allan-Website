@@ -4,7 +4,8 @@
 /* Declaring my variables and mixins for my SCSS stylesheet.*/
 /* Multiple pseudo-class/pseudo-elements were used thoughout the stylesheet. */
 *::selection {
-  color: hotpink;
+  color: white;
+  background-color: hotpink;
 }
 h1 {
   background-image: url(https://wallpaperaccess.com/full/383784.jpg);

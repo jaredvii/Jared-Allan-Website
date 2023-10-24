@@ -15,51 +15,7 @@ $(document).ready(function () {
             options: ["Sight", "Hearing", "Taste", "Smell"],
             answer: "Smell",
         },
-        {
-            question: "What is the term for a dog's sense of smell?",
-            options: ["Olfaction", "Scent-sense", "Sniffing", "Aroma-feel"],
-            answer: "Olfaction",
-        },
-        {
-            question: "What is a group of pugs called?",
-            options: ["Pack", "Puddle", "Grumble", "Clowder"],
-            answer: "Grumble",
-        },
-        {
-            question: "What is a Dachshund known for?",
-            options: ["Long tail", "Short legs", "Blue eyes", "Spots"],
-            answer: "Short legs",
-        },
-        {
-            question: "What is the name of the world's smallest dog breed?",
-            options: ["Chihuahua", "Pomeranian", "Shih Tzu", "Yorkshire Terrier"],
-            answer: "Chihuahua",
-        },
-        {
-            question: "What is a dog's favorite treat?",
-            options: ["Cheese", "Bananas", "Steak", "Kibble"],
-            answer: "Cheese",
-        },
-        {
-            question: "What is a group of corgis called?",
-            options: ["Herd", "Pack", "Bundle", "Gaggle"],
-            answer: "Herd",
-        },
-        {
-            question: "Which dog breed has a waterproof coat and webbed feet?",
-            options: ["Golden Retriever", "Newfoundland", "Labrador Retriever", "Cocker Spaniel"],
-            answer: "Newfoundland",
-        },
-        {
-            question: "How fast can a Greyhound run in miles per hour?",
-            options: ["30 mph", "40 mph", "50 mph", "60 mph"],
-            answer: "40 mph",
-        },
-        {
-            question: "What's the most popular dog name in the United States?",
-            options: ["Max", "Lucy", "Charlie", "Bella"],
-            answer: "Bella",
-        },
+        
     ];
 
     let currentQuestionIndex = 0;
@@ -68,7 +24,6 @@ $(document).ready(function () {
     function displayQuestion(index) {
         const question = dogTriviaQuestions[index];
         $("#question").text(question.question);
-
         $(".options").each(function (i) {
             $(this).text(question.options[i]);
         });
@@ -82,39 +37,57 @@ $(document).ready(function () {
         $("#next-button").prop("disabled", false);
     }
 
-    displayQuestion(currentQuestionIndex);
+    function displayMessageBox(message, isCorrect) {
+        const messageBox = $(".message-box");
+        messageBox.html(message);
+        if (isCorrect) {
+            messageBox.css("background-color", "#27ae60"); // Green background
+            messageBox.css("color", "#fff"); // White text
+        } else {
+            messageBox.css("background-color", "#e74c3c"); // Red background
+            messageBox.css("color", "#fff"); // White text
+        }
+        messageBox.addClass('show-message');
+    }
 
-    $(".options").hover(function () {
-        $(this).css("background-color", "#a14171");
-    }, function () {
-        $(this).css("background-color", "hotpink");
-    });
+    function updateButtonLabel() {
+        if (currentQuestionIndex < dogTriviaQuestions.length - 1) {
+            $("#next-button").text("Next");
+        } else {
+            $("#next-button").text("Finish");
+        }
+    }
+
+    function showRestartAndPortfolioButtons() {
+        $("#restart-button").show();
+        $("#portfolio-button").show();
+        $("#home-button").show();
+    }
+
+    function hideRestartAndPortfolioButtons() {
+        $("#restart-button").hide();
+        $("#portfolio-button").hide();
+        $("#home-button").hide();
+    }
+
+    displayQuestion(currentQuestionIndex);
+    updateButtonLabel();
+    hideRestartAndPortfolioButtons(); // Initially hide the "Restart," "Home," and "Portfolio" buttons
 
     $(".options").click(function () {
         const selectedOption = $(this).text();
         const correctAnswer = dogTriviaQuestions[currentQuestionIndex].answer;
 
         if (selectedOption === correctAnswer) {
-            displayFeedback(true);
-            correctAnswers++; 
-          
+            displayMessageBox("Correct!", true);
+            correctAnswers++;
         } else {
-            displayFeedback(false);
+            displayMessageBox("The correct answer is " + correctAnswer, false);
         }
 
         $(".options").prop("disabled", true);
         enableNextButton();
     });
-
-    function displayFeedback(isCorrect) {
-        const feedback = $("#feedback");
-        if (isCorrect) {
-            feedback.html('<div class="correct-feedback">Correct!</div>');
-        } else {
-            const correctAnswer = dogTriviaQuestions[currentQuestionIndex].answer;
-            feedback.html('<div class="incorrect-feedback">The correct answer is ' + correctAnswer + '</div>');
-        }
-    }
 
     $("#next-button").prop("disabled", true);
 
@@ -124,18 +97,39 @@ $(document).ready(function () {
 
         if (currentQuestionIndex < dogTriviaQuestions.length) {
             displayQuestion(currentQuestionIndex);
-            $("#feedback").empty();
+            $(".message-box").removeClass('show-message');
+            updateButtonLabel();
+            hideRestartAndPortfolioButtons(); // Hide the "Restart," "Home," and "Portfolio" buttons if not on the final screen
         } else {
-            $("#question-container").text("Congratulations! You have completed the dog trivia game.");
+            // Hide other elements as needed
+            $("#question-container").hide();
             $("#answer-options").hide();
             $("#next-button").hide();
+            $(".message-box").removeClass('show-message');
             $("#feedback").empty();
 
             const totalQuestions = dogTriviaQuestions.length;
-            $("#question-container").append('<p id="congratulations-message">You answered ' + correctAnswers + '/' + totalQuestions + ' questions correctly!</p>');
+            $("#score-message").text('You answered ' + correctAnswers + '/' + totalQuestions + ' questions correctly.');
+            $("#score-message").show(); // Show the score message at the end
 
- $("#congratulations-message").css("color", "hotpink");
+            // Show the "Restart" and "Portfolio" buttons on the final screen
+            showRestartAndPortfolioButtons();
         }
         $(this).prop("disabled", true);
+    });
+
+    $("#restart-button").click(function () {
+        // Reset the game by reloading the page
+        location.reload();
+    });
+
+    $("#home-button").click(function () {
+        // Redirect to the home page
+        window.location.href = "../../index.html"; // Set the file directory for the "Home" button
+    });
+
+    $("#portfolio-button").click(function () {
+        // Redirect to the Portfolio page
+        window.location.href = "../Portfolio/projects.html"; // Set the file directory for the "Portfolio" button
     });
 });
