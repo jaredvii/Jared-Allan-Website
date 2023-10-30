@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+
+::selection {
+  color: white;
+  background-color: hotpink;
+}
+
+body {
+  background-color: #333;
+}
+
+.container {
+  min-height: 80vh;
+  margin-block: 0;
+  display: flex;
+  align-items: center;
+}
+
+.container > .row {
+  flex-basis: 100%;
+}
+
+.card-header {
+  color: hotpink;
+  font-family: "Shrikhand", cursive;
+}
+
+.card-body {
+  padding: 0px, 0px, 2px, 2px;
+}
+
+.btn {
+  font-size: 1.2rem;
+  padding: 0.75rem 1rem;
+  font-family: "Outfit", Arial, sans-serif;
+}
+
+.btn-secondary {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.btn-light {
+  background-color: #e5e5e5;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.btn-light.btn-block,
+.btn-light.btn-block#decimal {
+  color: hotpink;
+}
+
+.btn-warning {
+  background-color: #ff9500;
+  color: #fff;
+  border: none;
+}
+
+.btn-warning.btn-block:focus {
+  box-shadow: 0 0 0 0.2rem rgb(161, 65, 113);
+}
+
+.btn-warning.btn-block,
+.btn-warning.btn-block#divide,
+.btn-warning.btn-block#multiply,
+.btn-warning.btn-block#subtract,
+.btn-warning.btn-block#add,
+.btn-warning.btn-block#equals {
+  background-color: hotpink;
+  color: white;
+  border-color: hotpink;
+  border-radius: 5px;
+}
+
+.btn-block {
+  width: 80%;
+}
+
+#zero-row {
+  margin-top: 0.7rem;
+}
+
+#zero {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-block#zero {
+  width: 91%;
+}
+
+.btn-group {
+  display: flex;
+}
+
+.btn-group-vertical {
+  gap: 0.5235rem;
+  width: 80%;
+}
+
+.btn-group-vertical > * {
+  width: 100%;
+}
