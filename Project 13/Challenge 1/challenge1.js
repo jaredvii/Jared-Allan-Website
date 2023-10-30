@@ -46,5 +46,6 @@ function getDayName(dateStr) {
     }
   }
   
+  
   getDayOfTheWeek();
   
